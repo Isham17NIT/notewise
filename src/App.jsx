@@ -1,8 +1,8 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Archive from "./pages/Home";
-import Important from "./pages/Home";
-import Bin from "./pages/Home";
+import Archive from "./pages/Archive";
+import Important from "./pages/Important";
+import Bin from "./pages/Bin";
 import { Routes, Route } from "react-router-dom";
 function App() {
   return(
