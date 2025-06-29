@@ -15,7 +15,7 @@ function Navbar() {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="fixed">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters sx={{ minHeight: 64 }}>
                         <MenuIcon sx={{ mr: 4 }} onClick={()=>dispatch(toggleSidebar())}/>
