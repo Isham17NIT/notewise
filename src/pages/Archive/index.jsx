@@ -3,20 +3,14 @@ import { useDispatch, useSelector } from "react-redux"
 import {v4 as uuid} from 'uuid'
 import UnarchiveIcon from '@mui/icons-material/Unarchive';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { deleteFromArchive, addToHome, addToBin } from "../../slices/notesSlice";
+import { toggleArchive, addToBin } from "../../slices/notesSlice";
 const Archive = ()=>{
-    const archivedContents = useSelector(state=>state.notes.archivedContents)
     const dispatch = useDispatch();
-    const onUnarchiveClick = (content)=>{
-        dispatch(deleteFromArchive(content));
-        dispatch(addToHome(content));
-    }
-    const onDeleteClick = ()=>{
-        dispatch(deleteFromArchive(content));
-        dispatch(addToBin(content));
-    }
+    const archivedContents = useSelector(state=>{
+       return state.notes.allNotes.filter((content)=>!content.isDeleted && content.isArchived)
+    })
     return (
-        <div className="mt-[80px] w-full flex flex-col items-center">
+        <div className="mt-[80px] w-full min-h-screen flex flex-col items-center">
             <div className="font-bold text-3xl text-center text-wrap">Archived Notes</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 w-full max-w-7xl">
                 {
@@ -29,8 +23,8 @@ const Archive = ()=>{
                                 <div className="flex-grow"></div>     
                                 <div className="flex">
                                     <div className="flex-grow"></div> 
-                                    <UnarchiveIcon className="mr-2" onClick={()=>onUnarchiveClick(content)}/>
-                                    <DeleteOutlineIcon className="mr-4" onClick={()=>onDeleteClick(content)}/>                                                      
+                                    <UnarchiveIcon className="mr-2" onClick={()=>dispatch(toggleArchive(content))}/>
+                                    <DeleteOutlineIcon className="mr-4" onClick={()=>dispatch(addToBin(content))}/>                                                      
                                 </div>
                             </div>
                         )

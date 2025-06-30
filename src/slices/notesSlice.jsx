@@ -1,51 +1,70 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    homeContents: [],
-    pinnedContents: [],
-    binContents: [],
-    impContents: [],
-    archivedContents: [],
-}
-const removeById = (arr,content)=>{
-    return arr.filter((item)=>item.id!==content.id)
+    allNotes: []
 }
 const notesSlice = createSlice({
     name:'notes',
     initialState,
     reducers:{
         addToBin: (state,action)=>{
-            state.binContents.push(action.payload)
+            const content = state.allNotes.find((content)=>content.id===action.payload.id)
+            content.isDeleted = true;
         },
         deleteFromBin: (state,action)=>{
-            state.binContents = removeById(state.binContents, action.payload);
-        }, 
-        addToHome: (state,action)=>{
-            state.homeContents.push(action.payload)
-        },    
-        deleteFromHome: (state,action)=>{
-            state.homeContents = removeById(state.homeContents, action.payload);
+            state.allNotes = state.allNotes.filter((content)=>content.id!==action.payload.id)
         },
+        restoreFromBin: (state,action)=>{ //after restoring from bin--->it should go to other notes section of Home page
+            const content = state.allNotes.find((content)=>content.id===action.payload.id)
+            content.isDeleted = false;
+            content.isImportant = false;
+            content.isArchived = false;
+            content.isPinned = false;
+        },
+        addToHome: (state,{id,title,desc})=>{
+            const content = {
+                id: id,
+                title: title,
+                desc: desc,
+                isDeleted: false,
+                isImportant: false,
+                isArchived: false,
+                isPinned: false
+            }
+            state.allNotes.push(content)
+        },  
         addToImportant: (state,action)=>{
-            state.impContents.push(action.payload)
+            const content = {
+                id: id,
+                title: title,
+                desc: desc,
+                isDeleted: false,
+                isImportant: true,
+                isArchived: false,
+                isPinned: false
+            }
+            state.allNotes.push(content)
         },
-        deleteFromImportant: (state,action)=>{
-            state.impContents = removeById(state.impContents, action.payload);
+        toggleArchive: (state,action)=>{
+            const content = state.allNotes.find((content)=>content.id===action.payload.id)
+            if(content.isArchived){
+                content.isArchived = false;
+            }
+            else{
+                content.isArchived = true;
+            }
         },
-        addToArchive: (state,action)=>{
-            state.archivedContents.push(action.payload)
-        },
-        deleteFromArchive: (state,action)=>{
-            state.archivedContents = removeById(state.archivedContents, action.payload);
-        },        
-        pinNote: (state,action)=>{
-            state.pinnedContents.push(action.payload)
-        },
-        unpinNote: (state,action)=>{
-            state.pinnedContents = removeById(state.pinnedContents, action.payload);
+        togglePin: (state,action)=>{
+            const content = state.allNotes.find((content)=>content.id===action.payload.id)
+            if(content.isPinned){
+                content.isPinned = false;
+            }
+            else{
+                content.isPinned = true;
+            }
         }
     }
 })
-export const { addToBin, deleteFromBin, addToHome, deleteFromHome, addToImportant, 
-    deleteFromImportant,addToArchive,deleteFromArchive, pinNote, unpinNote } = notesSlice.actions;
+export const { addToBin, deleteFromBin, restoreFromBin, addToHome, addToImportant, 
+    toggleArchive,togglePin } = notesSlice.actions;
 export default notesSlice.reducer
