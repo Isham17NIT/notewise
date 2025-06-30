@@ -16,7 +16,7 @@ const Bin = ()=>{
                 {
                     binContents.map((content,idx)=>{
                         return (
-                            <div key={uuid()} className="flex flex-col p-4 min-h-52 max-h-52 rounded-2xl border-1 border-gray-200">
+                            <div key={content.id} className="flex flex-col p-4 min-h-52 max-h-52 rounded-2xl border-1 border-gray-200">
                                 <div className="flex">
                                     <div className="truncate overflow-hidden whitespace-nowrap">{content.title}</div>
                                     <div className="flex-grow"></div> 
