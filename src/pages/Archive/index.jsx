@@ -16,7 +16,7 @@ const Archive = ()=>{
                 {
                     archivedContents.map((content,idx)=>{
                         return (
-                            <div key={uuid()} className="flex flex-col p-4 min-h-52 max-h-52 rounded-2xl border-1 border-gray-200 w-full">
+                            <div key={content.id} className="flex flex-col p-4 min-h-52 max-h-52 rounded-2xl border-1 border-gray-200 w-full">
                                 <div className="truncate overflow-hidden whitespace-nowrap">{content.title}</div>
                                 <Divider/>
                                 <div className="overflow-y-auto max-h-30 break-words pre-wrap">{content.desc}</div>

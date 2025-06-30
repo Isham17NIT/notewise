@@ -21,11 +21,9 @@ const notesSlice = createSlice({
             content.isArchived = false;
             content.isPinned = false;
         },
-        addToHome: (state,{id,title,desc})=>{
+        addToHome: (state,action)=>{
             const content = {
-                id: id,
-                title: title,
-                desc: desc,
+                ...action.payload,
                 isDeleted: false,
                 isImportant: false,
                 isArchived: false,
