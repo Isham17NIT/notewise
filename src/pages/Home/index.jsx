@@ -57,6 +57,15 @@ const Home = ()=>{
 
                 </div>
             </div>
+            {
+                homeContents.length===0 && pinnedContents.length===0 &&
+                (
+                    <div className="p-10 text-center text-wrap mb-10 flex flex-col w-full max-w-7xl">
+                    <h2 className="text-2xl font-semibold text-blue-600 mb-2">No Notes Yet!</h2>
+                    <p className="text-gray-500 mb-6">Start organizing your thoughts. Add your first note above.</p>
+                    </div>
+                )
+            }
             <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-7xl items-start">
                 {
                     pinnedContents?.length>0 && 

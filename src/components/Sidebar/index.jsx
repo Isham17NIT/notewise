@@ -4,6 +4,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import HomeIcon from '@mui/icons-material/Home';
 import LabelImportantOutlineIcon from '@mui/icons-material/LabelImportantOutline';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import InfoIcon from '@mui/icons-material/Info';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleSidebar } from '../../slices/sidebarSlice';
@@ -13,7 +14,8 @@ export default function Sidebar() {
     { title: 'Home', icon: <HomeIcon />, path: '/' },
     { title: 'Archive', icon: <InboxIcon />, path: '/archive' },
     { title: 'Important', icon: <LabelImportantOutlineIcon />, path: '/important' },
-    { title: 'Bin', icon: <DeleteOutlineIcon />, path: '/bin' }
+    { title: 'Bin', icon: <DeleteOutlineIcon />, path: '/bin' },
+    { title: 'About', icon: <InfoIcon/> ,path: '/about'}
   ];
   const list = (
     <Box

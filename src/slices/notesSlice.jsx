@@ -33,9 +33,7 @@ const notesSlice = createSlice({
         },  
         addToImportant: (state,action)=>{
             const content = {
-                id: id,
-                title: title,
-                desc: desc,
+                ...action.payload,
                 isDeleted: false,
                 isImportant: true,
                 isArchived: false,
