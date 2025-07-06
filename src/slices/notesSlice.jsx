@@ -63,9 +63,18 @@ const notesSlice = createSlice({
             else{
                 content.isPinned = true;
             }
+        },
+        editNote: (state,action)=>{
+            if(action.payload.title===' ' && action.payload.desc==='') //delete empty note
+                state.allNotes = state.allNotes.filter((note)=>note.id!==action.payload.id)
+            else{
+                const content = state.allNotes.find((content)=>content.id===action.payload.id)
+                content.title = action.payload.title
+                content.desc = action.payload.desc
+            }   
         }
     }
 })
 export const { addToBin, deleteFromBin, restoreFromBin, addToHome, addToImportant, 
-    toggleArchive,togglePin } = notesSlice.actions;
+    toggleArchive,togglePin,editNote } = notesSlice.actions;
 export default notesSlice.reducer
