@@ -1,12 +1,31 @@
-# React + Vite
+# 📝 NoteWise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NoteWise is a clean and responsive note-taking app built with React, Redux, Material UI and Tailwind CSS. It helps users quickly jot down, manage, and organize notes with features like pinning, archiving, deleting and restoring — all with a modern UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ Create, edit, and delete notes
+- 📌 Pin and mark notes as important
+- 📂 Archive notes for future reference
+- 🗑️ Trash bin with restore functionality
+- ✏️ Inline editing of existing notes
+- 🌗 Responsive and intuitive UI
+- ⚛️ State management via Redux
+- 💾 Data persistence with `localStorage`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+| Technology     | Use Case                     |
+|----------------|------------------------------|
+| React          | UI Development               |
+| Redux          | State Management             |
+| Tailwind CSS   | Utility-first styling        |
+| Material UI    | Icons and components         |
+
+---
+
+
