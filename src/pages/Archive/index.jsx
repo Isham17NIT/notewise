@@ -3,12 +3,16 @@ import { useDispatch, useSelector } from "react-redux"
 import {v4 as uuid} from 'uuid'
 import UnarchiveIcon from '@mui/icons-material/Unarchive';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { toggleArchive, addToBin } from "../../slices/notesSlice";
 const Archive = ()=>{
     const dispatch = useDispatch();
     const archivedContents = useSelector(state=>{
        return state.notes.allNotes.filter((content)=>!content.isDeleted && content.isArchived)
     })
+    const editNote = ()=>{
+
+    }
     return (
         <div className="mt-[80px] w-full min-h-screen flex flex-col items-center">
             <div className="font-bold text-3xl text-center text-wrap">Archived Notes</div>
@@ -23,8 +27,9 @@ const Archive = ()=>{
                                 <div className="flex-grow"></div>     
                                 <div className="flex">
                                     <div className="flex-grow"></div> 
-                                    <UnarchiveIcon className="mr-2" onClick={()=>dispatch(toggleArchive(content))}/>
-                                    <DeleteOutlineIcon className="mr-4" onClick={()=>dispatch(addToBin(content))}/>                                                      
+                                    <IconButton onClick={()=>dispatch(toggleArchive(content))}><UnarchiveIcon/></IconButton>  
+                                    <IconButton onClick={()=>dispatch(addToBin(content))}><DeleteOutlineIcon/></IconButton>   
+                                    <IconButton onClick={editNote}><EditOutlinedIcon/></IconButton>                                                     
                                 </div>
                             </div>
                         )

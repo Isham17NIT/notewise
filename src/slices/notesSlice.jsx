@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const getInitialState = ()=>{
+    const allNotes = localStorage.getItem('allNotes');
+    return allNotes ? JSON.parse(allNotes) : [];
+}
+
 const initialState = {
-    allNotes: []
+    allNotes: getInitialState()
 }
 const notesSlice = createSlice({
     name:'notes',

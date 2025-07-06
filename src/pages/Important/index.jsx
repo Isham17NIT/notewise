@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Divider, IconButton } from '@mui/material';
 import { addToBin, addToImportant } from '../../slices/notesSlice';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { v4 as uuid } from 'uuid'
 
@@ -20,7 +21,10 @@ const Important = ()=>{
             else{
                 alert("Empty note can't be created")
             }
-        }
+    }
+    const editNote = ()=>{
+
+    }
     return (
         <div className="mt-[64px] w-full min-h-screen flex flex-col gap-4 items-center">
             <div className="font-bold text-3xl text-center text-wrap mt-2">Important Notes</div>
@@ -71,6 +75,7 @@ const Important = ()=>{
                                         <div>Important</div>
                                         <div className="flex-grow"></div>
                                         <IconButton onClick={()=>dispatch(addToBin(content))}><DeleteOutlineOutlinedIcon/></IconButton>
+                                        <IconButton onClick={editNote}><EditOutlinedIcon/></IconButton>
                                     </div>
                                 </div>
                             )

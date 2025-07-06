@@ -7,6 +7,7 @@ import PushPinIcon from '@mui/icons-material/PushPin';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ArchiveIcon from '@mui/icons-material/Archive';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import {v4 as uuid} from 'uuid'
 const Home = ()=>{
     const [title, setTitle] = useState('')
@@ -28,6 +29,9 @@ const Home = ()=>{
         else{
             alert("Empty note can't be created")
         }
+    }
+    const editNote = ()=>{
+        
     }
     return (
         <div className="mt-[64px] w-full min-h-screen flex flex-col gap-4 items-center">
@@ -96,6 +100,7 @@ const Home = ()=>{
                                                 <div className="flex gap-1 justify-center items-center p-0.5">
                                                     <IconButton onClick={()=>dispatch(toggleArchive(content))}><ArchiveIcon/></IconButton>
                                                     <IconButton onClick={()=>dispatch(addToBin(content))}><DeleteOutlineOutlinedIcon/></IconButton>
+                                                    <IconButton onClick={editNote}><EditOutlinedIcon/></IconButton>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,6 +139,7 @@ const Home = ()=>{
                                                 <div className="flex gap-1 justify-center items-center p-0.5">
                                                     <IconButton onClick={()=>dispatch(toggleArchive(content))}><ArchiveIcon/></IconButton>
                                                     <IconButton onClick={()=>dispatch(addToBin(content))}><DeleteOutlineOutlinedIcon/></IconButton>
+                                                    <IconButton onClick={editNote}><EditOutlinedIcon/></IconButton>
                                                 </div>
                                             </div>
                                         </div>
