@@ -3,8 +3,13 @@
 NoteWise is a clean and responsive note-taking app built with React, Redux, Material UI and Tailwind CSS. It helps users quickly jot down, manage, and organize notes with features like pinning, archiving, deleting and restoring — all with a modern UI.
 
 ---
+## 🚀 Live Demo
 
-## 🚀 Features
+🔗 [Click here to view the live app](https://notewise-six.vercel.app/)
+
+---
+
+## ✨ Features
 
 - ✅ Create, edit, and delete notes
 - 📌 Pin and mark notes as important
