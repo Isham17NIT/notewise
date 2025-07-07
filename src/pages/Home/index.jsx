@@ -1,4 +1,3 @@
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useState,useReducer } from 'react';
 import { Typography, Divider, IconButton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +7,7 @@ import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ArchiveIcon from '@mui/icons-material/Archive';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import {v4 as uuid} from 'uuid'
 const Home = ()=>{
     const [title, setTitle] = useState('')
@@ -100,7 +100,8 @@ const Home = ()=>{
                         hover: cursor-pointer active:scale-95 p-1 rounded-2xl" 
                         onClick={createNote}
                     >
-                        <AddCircleOutlineIcon/>
+                        <AddCircleIcon className="text-gray-500 dark:text-gray-200"/>
+                        
                     </div>
 
                 </div>
@@ -142,7 +143,7 @@ const Home = ()=>{
                                                 <div className="flex-grow"></div>
                                                 <div className="flex justify-center items-center hover:bg-gray-100 hover: cursor-pointer 
                                                     active:scale-95 p-0.5 rounded-full" onClick={()=>dispatch(togglePin(content))}>
-                                                    <PushPinIcon/>
+                                                    <PushPinIcon className="text-gray-500 dark:text-gray-200"/>
                                                 </div>
                                             </div>
 
@@ -218,7 +219,7 @@ const Home = ()=>{
                                                 <div className="flex justify-center items-center hover:bg-gray-100 
                                                     hover: cursor-pointer active:scale-95 p-0.5 rounded-full" 
                                                     onClick={()=>dispatch(togglePin(content))}>
-                                                    <PushPinOutlinedIcon/>
+                                                    <PushPinOutlinedIcon className="text-gray-500 dark:text-gray-200"/>
                                                 </div>
                                             </div>
 

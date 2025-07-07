@@ -4,7 +4,7 @@ import { Divider, IconButton } from '@mui/material';
 import { addToBin, addToImportant,editNote } from '../../slices/notesSlice';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { v4 as uuid } from 'uuid'
 
 const Important = ()=>{
@@ -100,7 +100,7 @@ const Important = ()=>{
                         hover: cursor-pointer active:scale-95 p-1 rounded-2xl" 
                         onClick={createNote}
                     >
-                        <AddCircleOutlineIcon/>
+                        <AddCircleIcon className="text-gray-500 dark:text-gray-200"/>
                     </div>
 
                 </div>

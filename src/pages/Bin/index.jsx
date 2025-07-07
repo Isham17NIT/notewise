@@ -1,4 +1,4 @@
-import { Divider } from "@mui/material"
+import { Divider, IconButton } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
 import {v4 as uuid} from 'uuid'
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
@@ -20,14 +20,14 @@ const Bin = ()=>{
                                 <div className="flex">
                                     <div className="truncate overflow-hidden whitespace-nowrap">{content.title}</div>
                                     <div className="flex-grow"></div> 
-                                    <RestoreFromTrashIcon className="mr-4" onClick={()=>dispatch(restoreFromBin(content))}/>
+                                    <IconButton><RestoreFromTrashIcon onClick={()=>dispatch(restoreFromBin(content))}/></IconButton>
                                 </div>
                                 <Divider/>
-                                <div className="overflow-y-auto max-h-30 break-words pre-wrap">{content.desc}</div>
+                                <div className="overflow-y-auto max-h-30 break-words pre-wrap mt-1">{content.desc}</div>
                                 <div className="flex-grow"></div>     
                                 <div className="flex">
-                                    <div className="flex-grow"></div>       
-                                    <DeleteOutlineIcon className="mr-4" onClick={()=>dispatch(deleteFromBin(content))}/>                                                  
+                                    <div className="flex-grow"></div>    
+                                    <IconButton><DeleteOutlineIcon onClick={()=>dispatch(deleteFromBin(content))}/> </IconButton>                                           
                                 </div>
                             </div>
                         )
